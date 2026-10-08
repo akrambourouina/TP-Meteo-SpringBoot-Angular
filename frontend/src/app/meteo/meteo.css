@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.recherche {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.recherche input {
+  width: 350px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.recherche button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.recherche button:hover {
+  background-color: #555;
+}
+
+.meteo-actuelle {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.temperature {
+  font-size: 45px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.informations {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.info {
+  padding: 15px;
+  min-width: 150px;
+}
+
+.info span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.previsions {
+  margin-top: 30px;
+}
+
+.previsions h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.jours {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.jour {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 135px;
+  text-align: center;
+}
+
+.jour h3 {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.jour p {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+@media (max-width: 600px) {
+
+  .recherche {
+    flex-direction: column;
+  }
+
+  .recherche input {
+    width: 100%;
+  }
+
+  .recherche button {
+    width: 100%;
+  }
+
+  .informations {
+    flex-direction: column;
+  }
+
+  .jour {
+    width: 100%;
+  }
+
+}
+  .erreur {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin: 15px 0;
+}

@@ -1,0 +1,109 @@
+<div class="container">
+
+    <h1>Application Météo</h1>
+
+    <!-- Recherche -->
+    <div class="recherche">
+        <input type="text" [(ngModel)]="ville" placeholder="Entrez une ville">
+
+        <button (click)="getMeteo()">
+            Rechercher
+        </button>
+    </div>
+
+    @if (erreur) {
+    <p class="erreur">{{ erreur }}</p>
+    }
+
+
+    <!-- Affichage météo -->
+    @if (reponseMeteo) {
+
+    <div class="meteo-actuelle">
+
+        <h2>Météo actuelle à {{ ville }}</h2>
+
+        <div class="temperature">
+            {{ reponseMeteo.current?.temperature_2m }} °C
+        </div>
+
+        <div class="informations">
+
+            <div class="info">
+                <span>Ressenti</span>
+                <strong>
+                    {{ reponseMeteo.current?.apparent_temperature }} °C
+                </strong>
+            </div>
+
+            <div class="info">
+                <span>Humidité</span>
+                <strong>
+                    {{ reponseMeteo.current?.relative_humidity_2m }} %
+                </strong>
+            </div>
+
+            <div class="info">
+                <span>Vent</span>
+                <strong>
+                    {{ reponseMeteo.current?.wind_speed_10m }} km/h
+                </strong>
+            </div>
+
+            <div class="info">
+                <span>Précipitations</span>
+                <strong>
+                    {{ reponseMeteo.current?.precipitation }} mm
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Prévisions -->
+    <div class="previsions">
+
+        <h2>Prévisions sur 7 jours</h2>
+
+        <div class="jours">
+
+            @for (date of reponseMeteo.daily?.time; track date; let i = $index) {
+
+            <div class="jour">
+
+                <h3>{{ date }}</h3>
+
+                <p>
+                    Max :
+                    <strong>
+                        {{ reponseMeteo.daily?.temperature_2m_max?.[i] }} °C
+                    </strong>
+                </p>
+
+                <p>
+                    Min :
+                    <strong>
+                        {{ reponseMeteo.daily?.temperature_2m_min?.[i] }} °C
+                    </strong>
+                </p>
+
+                <p>
+                    Pluie :
+                    <strong>
+                        {{ reponseMeteo.daily?.precipitation_probability_max?.[i] }} %
+                    </strong>
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </div>
+
+    }
+
+</div>

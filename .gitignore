@@ -1,0 +1,16 @@
+# Angular
+**/node_modules/
+**/.angular/
+**/dist/
+
+# Spring Boot
+**/target/
+
+# IntelliJ et VS Code
+**/.idea/
+**/.vscode/
+*.iml
+
+# Fichiers sensibles
+.env
+.env.*
